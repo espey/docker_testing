@@ -1,0 +1,6 @@
+I, [2017-09-02T17:02:39.245177 #3127]  INFO -- default-centos-65: -----> Destroying <default-centos-65>...
+I, [2017-09-02T17:02:39.273716 #3127]  INFO -- default-centos-65: PID                 USER                TIME                COMMAND
+I, [2017-09-02T17:02:39.273816 #3127]  INFO -- default-centos-65: 5331                root                0:00                /usr/sbin/sshd -D -o UseDNS=no -o UsePAM=no -o PasswordAuthentication=yes -o UsePrivilegeSeparation=no -o PidFile=/tmp/sshd.pid
+I, [2017-09-02T17:02:40.002000 #3127]  INFO -- default-centos-65: 14578fd2351cf332e21a98c6a1c80d277c3b54d2a523fb27594ab9d3c58ca61d
+I, [2017-09-02T17:02:40.355538 #3127]  INFO -- default-centos-65: 14578fd2351cf332e21a98c6a1c80d277c3b54d2a523fb27594ab9d3c58ca61d
+I, [2017-09-02T17:02:40.373972 #3127]  INFO -- default-centos-65: Finished destroying <default-centos-65> (0m1.12s).

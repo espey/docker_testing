@@ -1,0 +1,9 @@
+---
+username: kitchen
+ssh_key: "/Users/erinpolsfoot/Chef/docker/.kitchen/docker_id_rsa"
+image_id: 221a5146da95
+container_id: 8c91f1f95451c57355d5f58c6584d4209cff393129442347fdd08e2f3ddf9346
+hostname: localhost
+port: 32774
+last_action: converge
+last_error: 

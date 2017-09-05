@@ -1,0 +1,23 @@
+driver:
+  name: docker
+  run_command: /usr/sbin/init
+  use_sudo: false
+  cap_add:
+    - SYS_ADMIN
+  privileged: true
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: centos-7
+    driver_config:
+      provision_command:
+        - yum install systemd -y
+        - yum install wget -y
+        - yum install git -y
+
+suites:
+  - name: default
+    run_list:
+    - recipe[docker::default]

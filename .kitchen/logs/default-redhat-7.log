@@ -1,0 +1,104 @@
+I, [2017-09-03T10:57:59.817094 #3625]  INFO -- default-redhat-7: -----> Creating <default-redhat-7>...
+I, [2017-09-03T10:58:02.574455 #3625]  INFO -- default-redhat-7: Bringing machine 'default' up with 'virtualbox' provider...
+I, [2017-09-03T10:58:02.711553 #3625]  INFO -- default-redhat-7: ==> default: Box 'redhat-7' could not be found. Attempting to find and install...
+I, [2017-09-03T10:58:02.711684 #3625]  INFO -- default-redhat-7:     default: Box Provider: virtualbox
+I, [2017-09-03T10:58:02.711902 #3625]  INFO -- default-redhat-7:     default: Box Version: >= 0
+I, [2017-09-03T10:58:03.008941 #3625]  INFO -- default-redhat-7: ==> default: Box file was not detected as metadata. Adding it directly...
+I, [2017-09-03T10:58:03.009147 #3625]  INFO -- default-redhat-7: ==> default: Adding box 'redhat-7' (v0) for provider: virtualbox
+I, [2017-09-03T10:58:03.012066 #3625]  INFO -- default-redhat-7:     default: Downloading: redhat-7
+I, [2017-09-03T10:58:03.093877 #3625]  INFO -- default-redhat-7: [KAn error occurred while downloading the remote file. The error
+I, [2017-09-03T10:58:03.093944 #3625]  INFO -- default-redhat-7: message, if any, is reproduced below. Please fix this error and try
+I, [2017-09-03T10:58:03.093963 #3625]  INFO -- default-redhat-7: again.
+I, [2017-09-03T10:58:03.093976 #3625]  INFO -- default-redhat-7: 
+I, [2017-09-03T10:58:03.093992 #3625]  INFO -- default-redhat-7: Couldn't open file /Users/erinpolsfoot/Chef/docker/.kitchen/kitchen-vagrant/kitchen-docker-default-redhat-7/redhat-7
+E, [2017-09-03T10:58:03.139781 #3625] ERROR -- default-redhat-7: Create failed on instance <default-redhat-7>.
+E, [2017-09-03T10:58:03.140039 #3625] ERROR -- default-redhat-7: ------Exception-------
+E, [2017-09-03T10:58:03.140070 #3625] ERROR -- default-redhat-7: Class: Kitchen::ShellOut::ShellCommandFailed
+E, [2017-09-03T10:58:03.140183 #3625] ERROR -- default-redhat-7: Message: Expected process to exit with [0], but received '1'
+---- Begin output of vagrant up --no-provision --provider virtualbox ----
+STDOUT: Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Box 'redhat-7' could not be found. Attempting to find and install...
+    default: Box Provider: virtualbox
+    default: Box Version: >= 0
+==> default: Box file was not detected as metadata. Adding it directly...
+==> default: Adding box 'redhat-7' (v0) for provider: virtualbox
+    default: Downloading: redhat-7
+[K
+STDERR: An error occurred while downloading the remote file. The error
+message, if any, is reproduced below. Please fix this error and try
+again.
+
+Couldn't open file /Users/erinpolsfoot/Chef/docker/.kitchen/kitchen-vagrant/kitchen-docker-default-redhat-7/redhat-7
+---- End output of vagrant up --no-provision --provider virtualbox ----
+Ran vagrant up --no-provision --provider virtualbox returned 1
+E, [2017-09-03T10:58:03.140206 #3625] ERROR -- default-redhat-7: ----------------------
+E, [2017-09-03T10:58:03.140227 #3625] ERROR -- default-redhat-7: ------Backtrace-------
+E, [2017-09-03T10:58:03.140246 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/shell_out.rb:71:in `rescue in run_command'
+E, [2017-09-03T10:58:03.140268 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/shell_out.rb:59:in `run_command'
+E, [2017-09-03T10:58:03.140287 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/kitchen-vagrant-1.1.0/lib/kitchen/driver/vagrant.rb:434:in `run_command'
+E, [2017-09-03T10:58:03.140309 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/kitchen-vagrant-1.1.0/lib/kitchen/driver/vagrant.rb:381:in `run'
+E, [2017-09-03T10:58:03.140330 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/kitchen-vagrant-1.1.0/lib/kitchen/driver/vagrant.rb:465:in `run_vagrant_up'
+E, [2017-09-03T10:58:03.140349 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/kitchen-vagrant-1.1.0/lib/kitchen/driver/vagrant.rb:105:in `create'
+E, [2017-09-03T10:58:03.140396 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:460:in `public_send'
+E, [2017-09-03T10:58:03.140420 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:460:in `block in perform_action'
+E, [2017-09-03T10:58:03.140442 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:524:in `block in synchronize_or_call'
+E, [2017-09-03T10:58:03.140460 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:522:in `synchronize'
+E, [2017-09-03T10:58:03.140480 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:522:in `synchronize_or_call'
+E, [2017-09-03T10:58:03.140500 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:489:in `block in action'
+E, [2017-09-03T10:58:03.140523 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/benchmark.rb:293:in `measure'
+E, [2017-09-03T10:58:03.140539 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:488:in `action'
+E, [2017-09-03T10:58:03.140561 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:460:in `perform_action'
+E, [2017-09-03T10:58:03.140578 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:370:in `create_action'
+E, [2017-09-03T10:58:03.140595 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:359:in `block in transition_to'
+E, [2017-09-03T10:58:03.140615 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:358:in `each'
+E, [2017-09-03T10:58:03.140632 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:358:in `transition_to'
+E, [2017-09-03T10:58:03.140652 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:135:in `converge'
+E, [2017-09-03T10:58:03.140668 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/command.rb:197:in `public_send'
+E, [2017-09-03T10:58:03.140683 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/command.rb:197:in `run_action_in_thread'
+E, [2017-09-03T10:58:03.140704 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/command.rb:169:in `block (2 levels) in run_action'
+E, [2017-09-03T10:58:03.140723 #3625] ERROR -- default-redhat-7: ----End Backtrace-----
+E, [2017-09-03T10:58:03.140738 #3625] ERROR -- default-redhat-7: ---Nested Exception---
+E, [2017-09-03T10:58:03.140759 #3625] ERROR -- default-redhat-7: Class: Mixlib::ShellOut::ShellCommandFailed
+E, [2017-09-03T10:58:03.140790 #3625] ERROR -- default-redhat-7: Message: Expected process to exit with [0], but received '1'
+---- Begin output of vagrant up --no-provision --provider virtualbox ----
+STDOUT: Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Box 'redhat-7' could not be found. Attempting to find and install...
+    default: Box Provider: virtualbox
+    default: Box Version: >= 0
+==> default: Box file was not detected as metadata. Adding it directly...
+==> default: Adding box 'redhat-7' (v0) for provider: virtualbox
+    default: Downloading: redhat-7
+[K
+STDERR: An error occurred while downloading the remote file. The error
+message, if any, is reproduced below. Please fix this error and try
+again.
+
+Couldn't open file /Users/erinpolsfoot/Chef/docker/.kitchen/kitchen-vagrant/kitchen-docker-default-redhat-7/redhat-7
+---- End output of vagrant up --no-provision --provider virtualbox ----
+Ran vagrant up --no-provision --provider virtualbox returned 1
+E, [2017-09-03T10:58:03.140822 #3625] ERROR -- default-redhat-7: ----------------------
+E, [2017-09-03T10:58:03.140843 #3625] ERROR -- default-redhat-7: ------Backtrace-------
+E, [2017-09-03T10:58:03.140864 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/shell_out.rb:71:in `rescue in run_command'
+E, [2017-09-03T10:58:03.140883 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/shell_out.rb:59:in `run_command'
+E, [2017-09-03T10:58:03.140902 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/kitchen-vagrant-1.1.0/lib/kitchen/driver/vagrant.rb:434:in `run_command'
+E, [2017-09-03T10:58:03.140920 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/kitchen-vagrant-1.1.0/lib/kitchen/driver/vagrant.rb:381:in `run'
+E, [2017-09-03T10:58:03.140939 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/kitchen-vagrant-1.1.0/lib/kitchen/driver/vagrant.rb:465:in `run_vagrant_up'
+E, [2017-09-03T10:58:03.140963 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/kitchen-vagrant-1.1.0/lib/kitchen/driver/vagrant.rb:105:in `create'
+E, [2017-09-03T10:58:03.140984 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:460:in `public_send'
+E, [2017-09-03T10:58:03.141005 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:460:in `block in perform_action'
+E, [2017-09-03T10:58:03.141025 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:524:in `block in synchronize_or_call'
+E, [2017-09-03T10:58:03.141047 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:522:in `synchronize'
+E, [2017-09-03T10:58:03.141064 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:522:in `synchronize_or_call'
+E, [2017-09-03T10:58:03.141138 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:489:in `block in action'
+E, [2017-09-03T10:58:03.141156 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/benchmark.rb:293:in `measure'
+E, [2017-09-03T10:58:03.141175 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:488:in `action'
+E, [2017-09-03T10:58:03.141194 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:460:in `perform_action'
+E, [2017-09-03T10:58:03.141214 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:370:in `create_action'
+E, [2017-09-03T10:58:03.141232 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:359:in `block in transition_to'
+E, [2017-09-03T10:58:03.141251 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:358:in `each'
+E, [2017-09-03T10:58:03.141270 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:358:in `transition_to'
+E, [2017-09-03T10:58:03.141291 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:135:in `converge'
+E, [2017-09-03T10:58:03.141313 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/command.rb:197:in `public_send'
+E, [2017-09-03T10:58:03.141342 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/command.rb:197:in `run_action_in_thread'
+E, [2017-09-03T10:58:03.141364 #3625] ERROR -- default-redhat-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/command.rb:169:in `block (2 levels) in run_action'
+E, [2017-09-03T10:58:03.141391 #3625] ERROR -- default-redhat-7: ----End Backtrace-----
