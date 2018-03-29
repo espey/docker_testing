@@ -1,0 +1,292 @@
+I, [2018-03-18T15:29:01.430122 #22163]  INFO -- default-centos-7: -----> Creating <default-centos-7>...
+I, [2018-03-18T15:29:01.735055 #22163]  INFO -- default-centos-7: Sending build context to Docker daemon  144.9kB
+I, [2018-03-18T15:29:01.969803 #22163]  INFO -- default-centos-7: Step 1/20 : FROM centos:centos7
+I, [2018-03-18T15:29:01.972793 #22163]  INFO -- default-centos-7:  ---> 3bee3060bfc8
+I, [2018-03-18T15:29:01.972915 #22163]  INFO -- default-centos-7: Step 2/20 : ENV container docker
+I, [2018-03-18T15:29:01.973751 #22163]  INFO -- default-centos-7:  ---> Using cache
+I, [2018-03-18T15:29:01.973958 #22163]  INFO -- default-centos-7:  ---> e462b3966c0c
+I, [2018-03-18T15:29:01.974060 #22163]  INFO -- default-centos-7: Step 3/20 : RUN yum clean all
+I, [2018-03-18T15:29:01.974526 #22163]  INFO -- default-centos-7:  ---> Using cache
+I, [2018-03-18T15:29:01.974661 #22163]  INFO -- default-centos-7:  ---> d8f51b1f3668
+I, [2018-03-18T15:29:01.974834 #22163]  INFO -- default-centos-7: Step 4/20 : RUN yum install -y sudo openssh-server openssh-clients which curl
+I, [2018-03-18T15:29:01.975274 #22163]  INFO -- default-centos-7:  ---> Using cache
+I, [2018-03-18T15:29:01.975408 #22163]  INFO -- default-centos-7:  ---> e3be1b383ce8
+I, [2018-03-18T15:29:01.975535 #22163]  INFO -- default-centos-7: Step 5/20 : RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ''
+I, [2018-03-18T15:29:01.975958 #22163]  INFO -- default-centos-7:  ---> Using cache
+I, [2018-03-18T15:29:01.976126 #22163]  INFO -- default-centos-7:  ---> a55e1aff8cbd
+I, [2018-03-18T15:29:01.976222 #22163]  INFO -- default-centos-7: Step 6/20 : RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key -N ''
+I, [2018-03-18T15:29:01.976495 #22163]  INFO -- default-centos-7:  ---> Using cache
+I, [2018-03-18T15:29:01.976658 #22163]  INFO -- default-centos-7:  ---> 7c685e176752
+I, [2018-03-18T15:29:01.976706 #22163]  INFO -- default-centos-7: Step 7/20 : RUN if ! getent passwd kitchen; then                 useradd -d /home/kitchen -m -s /bin/bash -p '*' kitchen;               fi
+I, [2018-03-18T15:29:01.977120 #22163]  INFO -- default-centos-7:  ---> Using cache
+I, [2018-03-18T15:29:01.977245 #22163]  INFO -- default-centos-7:  ---> 2654fadbdac9
+I, [2018-03-18T15:29:01.977343 #22163]  INFO -- default-centos-7: Step 8/20 : RUN echo "kitchen ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+I, [2018-03-18T15:29:01.977816 #22163]  INFO -- default-centos-7:  ---> Using cache
+I, [2018-03-18T15:29:01.978099 #22163]  INFO -- default-centos-7:  ---> 3cd4b2d08eb5
+I, [2018-03-18T15:29:01.978139 #22163]  INFO -- default-centos-7: Step 9/20 : RUN echo "Defaults !requiretty" >> /etc/sudoers
+I, [2018-03-18T15:29:01.978337 #22163]  INFO -- default-centos-7:  ---> Using cache
+I, [2018-03-18T15:29:01.978457 #22163]  INFO -- default-centos-7:  ---> 0807b5c33428
+I, [2018-03-18T15:29:01.978624 #22163]  INFO -- default-centos-7: Step 10/20 : RUN mkdir -p /home/kitchen/.ssh
+I, [2018-03-18T15:29:01.978831 #22163]  INFO -- default-centos-7:  ---> Using cache
+I, [2018-03-18T15:29:01.978979 #22163]  INFO -- default-centos-7:  ---> dcd9b1b2420b
+I, [2018-03-18T15:29:01.979032 #22163]  INFO -- default-centos-7: Step 11/20 : RUN chown -R kitchen /home/kitchen/.ssh
+I, [2018-03-18T15:29:01.979352 #22163]  INFO -- default-centos-7:  ---> Using cache
+I, [2018-03-18T15:29:01.979477 #22163]  INFO -- default-centos-7:  ---> da6f60da6ada
+I, [2018-03-18T15:29:01.979519 #22163]  INFO -- default-centos-7: Step 12/20 : RUN chmod 0700 /home/kitchen/.ssh
+I, [2018-03-18T15:29:01.979908 #22163]  INFO -- default-centos-7:  ---> Using cache
+I, [2018-03-18T15:29:01.980104 #22163]  INFO -- default-centos-7:  ---> 35d932324605
+I, [2018-03-18T15:29:01.980142 #22163]  INFO -- default-centos-7: Step 13/20 : RUN touch /home/kitchen/.ssh/authorized_keys
+I, [2018-03-18T15:29:01.980398 #22163]  INFO -- default-centos-7:  ---> Using cache
+I, [2018-03-18T15:29:01.980495 #22163]  INFO -- default-centos-7:  ---> 03421c276b5e
+I, [2018-03-18T15:29:01.980566 #22163]  INFO -- default-centos-7: Step 14/20 : RUN chown kitchen /home/kitchen/.ssh/authorized_keys
+I, [2018-03-18T15:29:01.980912 #22163]  INFO -- default-centos-7:  ---> Using cache
+I, [2018-03-18T15:29:01.981113 #22163]  INFO -- default-centos-7:  ---> 99a112a6e5b0
+I, [2018-03-18T15:29:01.981146 #22163]  INFO -- default-centos-7: Step 15/20 : RUN chmod 0600 /home/kitchen/.ssh/authorized_keys
+I, [2018-03-18T15:29:01.981397 #22163]  INFO -- default-centos-7:  ---> Using cache
+I, [2018-03-18T15:29:01.981483 #22163]  INFO -- default-centos-7:  ---> d35b4bdcdcb6
+I, [2018-03-18T15:29:01.981561 #22163]  INFO -- default-centos-7: Step 16/20 : RUN yum install systemd -y
+I, [2018-03-18T15:29:01.982422 #22163]  INFO -- default-centos-7:  ---> Using cache
+I, [2018-03-18T15:29:01.982503 #22163]  INFO -- default-centos-7:  ---> f41a3191fb80
+I, [2018-03-18T15:29:01.982615 #22163]  INFO -- default-centos-7: Step 17/20 : RUN yum install wget -y
+I, [2018-03-18T15:29:01.982939 #22163]  INFO -- default-centos-7:  ---> Using cache
+I, [2018-03-18T15:29:01.983003 #22163]  INFO -- default-centos-7:  ---> f2f8f791b08d
+I, [2018-03-18T15:29:01.983086 #22163]  INFO -- default-centos-7: Step 18/20 : RUN yum install git -y
+I, [2018-03-18T15:29:01.983700 #22163]  INFO -- default-centos-7:  ---> Using cache
+I, [2018-03-18T15:29:01.983806 #22163]  INFO -- default-centos-7:  ---> 4afb16c560ff
+I, [2018-03-18T15:29:01.983836 #22163]  INFO -- default-centos-7: Step 19/20 : RUN yum install lvm2 -y
+I, [2018-03-18T15:29:01.984547 #22163]  INFO -- default-centos-7:  ---> Using cache
+I, [2018-03-18T15:29:01.984666 #22163]  INFO -- default-centos-7:  ---> e420640c57e2
+I, [2018-03-18T15:29:01.984736 #22163]  INFO -- default-centos-7: Step 20/20 : RUN echo ssh-rsa\ AAAAB3NzaC1yc2EAAAADAQABAAABAQDHwQrACMQk0G0Zq3EEkFEvg7VjhwwMr\+w\+l0cBM/4f1HfthhKcgrQxhz\+d\+E2RYrCTwm/\+gk0yS2kIedSN9BbJM6CHzURKUov3hqwkWWk2z3ADA2XUrVEZP1w8RxbGOgZebCWjVGbC9dzW6iYH9WjTh84lFm9meGkjpq8aOQX0zVgH\+RVcrQnO9Ky921nEGy6p9f/xauWkMwUlDolfZeRvalFqT6nx4a56YVfTPvr/jM/MsgrolannkzGVKdnMukXKytxHJPE4cxtpFag27v20WXRq2DuvzipueRGWflO\+HOABUK3XxuuLPiU2V7QfHv6A1VsA6wHvhZ3GBSGY0X9d\ kitchen_docker_key >> /home/kitchen/.ssh/authorized_keys
+I, [2018-03-18T15:29:01.985204 #22163]  INFO -- default-centos-7:  ---> Using cache
+I, [2018-03-18T15:29:01.985352 #22163]  INFO -- default-centos-7:  ---> 4a5cf406ea77
+I, [2018-03-18T15:29:01.988637 #22163]  INFO -- default-centos-7: Successfully built 4a5cf406ea77
+I, [2018-03-18T15:29:02.429912 #22163]  INFO -- default-centos-7: 8b429427f10c4912518504d398a278280aba932a49a88f4a86db21a4a748c54a
+I, [2018-03-18T15:29:03.085799 #22163]  INFO -- default-centos-7: 0.0.0.0:32768
+I, [2018-03-18T15:29:03.113850 #22163]  INFO -- default-centos-7: Waiting for SSH service on localhost:32768, retrying in 3 seconds
+I, [2018-03-18T15:29:06.304904 #22163]  INFO -- default-centos-7: [SSH] Established
+I, [2018-03-18T15:29:06.306971 #22163]  INFO -- default-centos-7: Finished creating <default-centos-7> (0m4.88s).
+I, [2018-03-18T15:29:06.307111 #22163]  INFO -- default-centos-7: -----> Converging <default-centos-7>...
+I, [2018-03-18T15:29:06.308689 #22163]  INFO -- default-centos-7: Preparing files for transfer
+I, [2018-03-18T15:29:06.308819 #22163]  INFO -- default-centos-7: Preparing dna.json
+I, [2018-03-18T15:29:06.309224 #22163]  INFO -- default-centos-7: Preparing current project directory as a cookbook
+I, [2018-03-18T15:29:06.312181 #22163]  INFO -- default-centos-7: Removing non-cookbook files before transfer
+I, [2018-03-18T15:29:06.314237 #22163]  INFO -- default-centos-7: Preparing validation.pem
+I, [2018-03-18T15:29:06.315330 #22163]  INFO -- default-centos-7: Preparing client.rb
+I, [2018-03-18T15:29:06.348406 #22163]  INFO -- default-centos-7: -----> Installing Chef Omnibus (install only if missing)
+I, [2018-03-18T15:29:06.352722 #22163]  INFO -- default-centos-7: Downloading https://omnitruck.chef.io/install.sh to file /tmp/install.sh
+I, [2018-03-18T15:29:06.352912 #22163]  INFO -- default-centos-7: Trying wget...
+I, [2018-03-18T15:29:06.979442 #22163]  INFO -- default-centos-7: Download complete.
+I, [2018-03-18T15:29:07.006569 #22163]  INFO -- default-centos-7: el 7 x86_64
+I, [2018-03-18T15:29:07.006753 #22163]  INFO -- default-centos-7: Getting information for chef stable  for el...
+I, [2018-03-18T15:29:07.006843 #22163]  INFO -- default-centos-7: downloading https://omnitruck.chef.io/stable/chef/metadata?v=&p=el&pv=7&m=x86_64
+I, [2018-03-18T15:29:07.006873 #22163]  INFO -- default-centos-7:   to file /tmp/install.sh.129/metadata.txt
+I, [2018-03-18T15:29:07.007203 #22163]  INFO -- default-centos-7: trying wget...
+I, [2018-03-18T15:29:07.406325 #22163]  INFO -- default-centos-7: sha1	f69e475eb3bcdeefe761462f05cbf7c7281270ae
+I, [2018-03-18T15:29:07.406407 #22163]  INFO -- default-centos-7: sha256	39227d13e5ca2ae023627ad63c56a073b7fecf1a68030915b11ce55e9692c214
+I, [2018-03-18T15:29:07.406441 #22163]  INFO -- default-centos-7: url	https://packages.chef.io/files/stable/chef/13.8.5/el/7/chef-13.8.5-1.el7.x86_64.rpm
+I, [2018-03-18T15:29:07.406640 #22163]  INFO -- default-centos-7: version	13.8.5
+I, [2018-03-18T15:29:07.408896 #22163]  INFO -- default-centos-7: downloaded metadata file looks valid...
+I, [2018-03-18T15:29:07.421533 #22163]  INFO -- default-centos-7: downloading https://packages.chef.io/files/stable/chef/13.8.5/el/7/chef-13.8.5-1.el7.x86_64.rpm
+I, [2018-03-18T15:29:07.421636 #22163]  INFO -- default-centos-7:   to file /tmp/install.sh.129/chef-13.8.5-1.el7.x86_64.rpm
+I, [2018-03-18T15:29:07.421896 #22163]  INFO -- default-centos-7: trying wget...
+I, [2018-03-18T15:29:12.471520 #22163]  INFO -- default-centos-7: Comparing checksum with sha256sum...
+I, [2018-03-18T15:29:12.666352 #22163]  INFO -- default-centos-7: 
+I, [2018-03-18T15:29:12.666669 #22163]  INFO -- default-centos-7: WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
+I, [2018-03-18T15:29:12.666907 #22163]  INFO -- default-centos-7: 
+I, [2018-03-18T15:29:12.667097 #22163]  INFO -- default-centos-7: You are installing an omnibus package without a version pin.  If you are installing
+I, [2018-03-18T15:29:12.667329 #22163]  INFO -- default-centos-7: on production servers via an automated process this is DANGEROUS and you will
+I, [2018-03-18T15:29:12.667481 #22163]  INFO -- default-centos-7: be upgraded without warning on new releases, even to new major releases.
+I, [2018-03-18T15:29:12.667630 #22163]  INFO -- default-centos-7: Letting the version float is only appropriate in desktop, test, development or
+I, [2018-03-18T15:29:12.667851 #22163]  INFO -- default-centos-7: CI/CD environments.
+I, [2018-03-18T15:29:12.667955 #22163]  INFO -- default-centos-7: 
+I, [2018-03-18T15:29:12.668082 #22163]  INFO -- default-centos-7: WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
+I, [2018-03-18T15:29:12.668176 #22163]  INFO -- default-centos-7: 
+I, [2018-03-18T15:29:12.668386 #22163]  INFO -- default-centos-7: Installing chef 
+I, [2018-03-18T15:29:12.668577 #22163]  INFO -- default-centos-7: installing with rpm...
+I, [2018-03-18T15:29:12.732498 #22163]  INFO -- default-centos-7: warning: /tmp/install.sh.129/chef-13.8.5-1.el7.x86_64.rpm: Header V4 DSA/SHA1 Signature, key ID 83ef826a: NOKEY
+I, [2018-03-18T15:29:13.079401 #22163]  INFO -- default-centos-7: Preparing...                                                            (100%)#                                 (100%)##                                (100%)###                               (100%)####                              (100%)#####                             (100%)######                            (100%)#######                           (100%)########                          (100%)#########                         (100%)##########                        (100%)###########                       (100%)############                      (100%)#############                     (100%)##############                    (100%)###############                   (100%)################                  (100%)#################                 (100%)##################                (100%)###################               (100%)####################              (100%)#####################             (100%)######################            (100%)#######################           (100%)########################          (100%)#########################         (100%)##########################        (100%)###########################       (100%)############################      (100%)#############################     (100%)##############################    (100%)###############################   (100%)################################  (100%)################################# (100%)################################# [100%]
+I, [2018-03-18T15:29:13.091570 #22163]  INFO -- default-centos-7: Updating / installing...
+I, [2018-03-18T15:29:18.695210 #22163]  INFO -- default-centos-7:    1:chef-13.8.5-1.el7                                                  (  1%)#                                 (  4%)##                                (  7%)###                               ( 10%)####                              ( 13%)#####                             ( 16%)######                            ( 19%)#######                           ( 22%)########                          ( 25%)#########                         ( 28%)##########                        ( 31%)###########                       ( 34%)############                      ( 37%)#############                     ( 40%)##############                    ( 43%)###############                   ( 46%)################                  ( 49%)#################                 ( 51%)##################                ( 54%)###################               ( 57%)####################              ( 60%)#####################             ( 63%)######################            ( 66%)#######################           ( 69%)########################          ( 72%)#########################         ( 75%)##########################        ( 78%)###########################       ( 81%)############################      ( 84%)#############################     ( 87%)##############################    ( 90%)###############################   ( 93%)################################  ( 96%)################################# ( 99%)################################# [100%]
+I, [2018-03-18T15:29:19.706153 #22163]  INFO -- default-centos-7: Thank you for installing Chef!
+I, [2018-03-18T15:29:19.779976 #22163]  INFO -- default-centos-7: Transferring files to <default-centos-7>
+I, [2018-03-18T15:29:20.878069 #22163]  INFO -- default-centos-7: Starting Chef Client, version 13.8.5
+I, [2018-03-18T15:29:21.244368 #22163]  INFO -- default-centos-7: [2018-03-18T21:29:17+00:00] WARN: Plugin Network: unable to detect ipaddress
+I, [2018-03-18T15:29:21.834732 #22163]  INFO -- default-centos-7: Creating a new client identity for default-centos-7 using the validator key.
+I, [2018-03-18T15:29:21.885155 #22163]  INFO -- default-centos-7: resolving cookbooks for run list: ["docker::default"]
+I, [2018-03-18T15:29:21.901228 #22163]  INFO -- default-centos-7: Synchronizing Cookbooks:
+I, [2018-03-18T15:29:21.911331 #22163]  INFO -- default-centos-7:   - docker (0.0.1)
+I, [2018-03-18T15:29:21.911592 #22163]  INFO -- default-centos-7: Installing Cookbook Gems:
+I, [2018-03-18T15:29:21.912983 #22163]  INFO -- default-centos-7: Compiling Cookbooks...
+I, [2018-03-18T15:29:21.919282 #22163]  INFO -- default-centos-7: Converging 11 resources
+I, [2018-03-18T15:29:21.919812 #22163]  INFO -- default-centos-7: Recipe: docker::default
+I, [2018-03-18T15:29:22.281154 #22163]  INFO -- default-centos-7:   * execute[get epel repo] action run
+I, [2018-03-18T15:29:22.281548 #22163]  INFO -- default-centos-7:     - execute wget --no-check-certificate https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+I, [2018-03-18T15:29:23.571151 #22163]  INFO -- default-centos-7:   * execute[get epel repo] action run
+I, [2018-03-18T15:29:23.571260 #22163]  INFO -- default-centos-7:     - execute wget --no-check-certificate https://yum.dockerproject.org/repo/main/centos/7
+I, [2018-03-18T15:29:23.579221 #22163]  INFO -- default-centos-7:   * template[/etc/yum.repos.d/epel.repo] action create
+I, [2018-03-18T15:29:23.580476 #22163]  INFO -- default-centos-7:     - create new file /etc/yum.repos.d/epel.repo
+I, [2018-03-18T15:29:23.580526 #22163]  INFO -- default-centos-7:     - update content in file /etc/yum.repos.d/epel.repo from none to f9109a
+I, [2018-03-18T15:29:23.580674 #22163]  INFO -- default-centos-7:     --- /etc/yum.repos.d/epel.repo	2018-03-18 21:29:20.248792757 +0000
+I, [2018-03-18T15:29:23.580728 #22163]  INFO -- default-centos-7:     +++ /etc/yum.repos.d/.chef-epel20180318-256-mh4ch3.repo	2018-03-18 21:29:20.248792757 +0000
+I, [2018-03-18T15:29:23.580756 #22163]  INFO -- default-centos-7:     @@ -1 +1,8 @@
+I, [2018-03-18T15:29:23.580779 #22163]  INFO -- default-centos-7:     +[epel]
+I, [2018-03-18T15:29:23.580802 #22163]  INFO -- default-centos-7:     +name=Extra Packages for Enterprise Linux 6 - $basearch
+I, [2018-03-18T15:29:23.580856 #22163]  INFO -- default-centos-7:     +baseurl=http://dl.fedoraproject.org/pub/epel/6/$basearch
+I, [2018-03-18T15:29:23.581026 #22163]  INFO -- default-centos-7:     +failovermethod=priority
+I, [2018-03-18T15:29:23.581057 #22163]  INFO -- default-centos-7:     +enabled=1
+I, [2018-03-18T15:29:23.581080 #22163]  INFO -- default-centos-7:     +gpgcheck=1
+I, [2018-03-18T15:29:23.582560 #22163]  INFO -- default-centos-7:     +gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+I, [2018-03-18T15:29:23.582605 #22163]  INFO -- default-centos-7:     - change mode from '' to '0755'
+I, [2018-03-18T15:29:23.582633 #22163]  INFO -- default-centos-7:     - change owner from '' to 'root'
+I, [2018-03-18T15:29:23.583353 #22163]  INFO -- default-centos-7:     - change group from '' to 'root'
+I, [2018-03-18T15:29:23.585250 #22163]  INFO -- default-centos-7:   * template[/etc/yum.repos.d/docker.repo] action create
+I, [2018-03-18T15:29:23.586148 #22163]  INFO -- default-centos-7:     - create new file /etc/yum.repos.d/docker.repo
+I, [2018-03-18T15:29:23.586190 #22163]  INFO -- default-centos-7:     - update content in file /etc/yum.repos.d/docker.repo from none to a04a6a
+I, [2018-03-18T15:29:23.586319 #22163]  INFO -- default-centos-7:     --- /etc/yum.repos.d/docker.repo	2018-03-18 21:29:20.248792757 +0000
+I, [2018-03-18T15:29:23.586404 #22163]  INFO -- default-centos-7:     +++ /etc/yum.repos.d/.chef-docker20180318-256-48d4gs.repo	2018-03-18 21:29:20.248792757 +0000
+I, [2018-03-18T15:29:23.586429 #22163]  INFO -- default-centos-7:     @@ -1 +1,7 @@
+I, [2018-03-18T15:29:23.586449 #22163]  INFO -- default-centos-7:     +[dockerrepo]
+I, [2018-03-18T15:29:23.586471 #22163]  INFO -- default-centos-7:     +name=Docker Repository
+I, [2018-03-18T15:29:23.586506 #22163]  INFO -- default-centos-7:     +baseurl=https://yum.dockerproject.org/repo/main/centos/7
+I, [2018-03-18T15:29:23.586623 #22163]  INFO -- default-centos-7:     +enabled=1
+I, [2018-03-18T15:29:23.586648 #22163]  INFO -- default-centos-7:     +gpgcheck=1
+I, [2018-03-18T15:29:23.587705 #22163]  INFO -- default-centos-7:     +gpgkey=https://yum.dockerproject.org/gpg
+I, [2018-03-18T15:29:23.587749 #22163]  INFO -- default-centos-7:     - change mode from '' to '0755'
+I, [2018-03-18T15:29:23.587772 #22163]  INFO -- default-centos-7:     - change owner from '' to 'root'
+I, [2018-03-18T15:29:23.587975 #22163]  INFO -- default-centos-7:     - change group from '' to 'root'
+I, [2018-03-18T15:29:25.057574 #22163]  INFO -- default-centos-7:   * execute[get gpg key] action run
+I, [2018-03-18T15:29:25.058721 #22163]  INFO -- default-centos-7:     - execute rpm --import http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6
+I, [2018-03-18T15:31:17.761391 #22163]  INFO -- default-centos-7:   * execute[yum update package] action run
+I, [2018-03-18T15:31:17.764049 #22163]  INFO -- default-centos-7:     - execute yum update -y
+I, [2018-03-18T15:32:02.218903 #22163]  INFO -- default-centos-7:   * yum_package[docker-engine] action install
+I, [2018-03-18T15:32:02.221849 #22163]  INFO -- default-centos-7:     - install version 1.11.1-1.el7.centos of package docker-engine
+I, [2018-03-18T15:32:02.222342 #22163]  INFO -- default-centos-7:   * directory[/etc/systemd/system/docker.service.d] action create
+I, [2018-03-18T15:32:02.222527 #22163]  INFO -- default-centos-7:     - create new directory /etc/systemd/system/docker.service.d
+I, [2018-03-18T15:32:02.254351 #22163]  INFO -- default-centos-7:   * execute[create volumes] action run
+I, [2018-03-18T15:32:02.254496 #22163]  INFO -- default-centos-7:     
+I, [2018-03-18T15:32:02.254559 #22163]  INFO -- default-centos-7:     ================================================================================
+I, [2018-03-18T15:32:02.254611 #22163]  INFO -- default-centos-7:     Error executing action `run` on resource 'execute[create volumes]'
+I, [2018-03-18T15:32:02.254819 #22163]  INFO -- default-centos-7:     ================================================================================
+I, [2018-03-18T15:32:02.255379 #22163]  INFO -- default-centos-7:     
+I, [2018-03-18T15:32:02.255612 #22163]  INFO -- default-centos-7:     Mixlib::ShellOut::ShellCommandFailed
+I, [2018-03-18T15:32:02.255680 #22163]  INFO -- default-centos-7:     ------------------------------------
+I, [2018-03-18T15:32:02.255742 #22163]  INFO -- default-centos-7:     Expected process to exit with [0], but received '3'
+I, [2018-03-18T15:32:02.255797 #22163]  INFO -- default-centos-7:     ---- Begin output of     pvcreate /dev/sdb     vgcreate dvol /dev/sdb     lvcreate -y -l 5%VG -n docker-poolmeta dvol     lvcreate -y -l 90%VG -n docker-pool dvol     lvcreate -y --zero n --thinpool dvol/docker-pool --pooldata dvol/docker-poolmeta
+I, [2018-03-18T15:32:02.255916 #22163]  INFO -- default-centos-7:      ----
+I, [2018-03-18T15:32:02.255963 #22163]  INFO -- default-centos-7:     STDOUT: 
+I, [2018-03-18T15:32:02.256008 #22163]  INFO -- default-centos-7:     STDERR: pvcreate: invalid option -- 'l'
+I, [2018-03-18T15:32:02.256075 #22163]  INFO -- default-centos-7:       Error during parsing of command line.
+I, [2018-03-18T15:32:02.256122 #22163]  INFO -- default-centos-7:     ---- End output of     pvcreate /dev/sdb     vgcreate dvol /dev/sdb     lvcreate -y -l 5%VG -n docker-poolmeta dvol     lvcreate -y -l 90%VG -n docker-pool dvol     lvcreate -y --zero n --thinpool dvol/docker-pool --pooldata dvol/docker-poolmeta
+I, [2018-03-18T15:32:02.256163 #22163]  INFO -- default-centos-7:      ----
+I, [2018-03-18T15:32:02.256204 #22163]  INFO -- default-centos-7:     Ran     pvcreate /dev/sdb     vgcreate dvol /dev/sdb     lvcreate -y -l 5%VG -n docker-poolmeta dvol     lvcreate -y -l 90%VG -n docker-pool dvol     lvcreate -y --zero n --thinpool dvol/docker-pool --pooldata dvol/docker-poolmeta
+I, [2018-03-18T15:32:02.256336 #22163]  INFO -- default-centos-7:      returned 3
+I, [2018-03-18T15:32:02.256384 #22163]  INFO -- default-centos-7:     
+I, [2018-03-18T15:32:02.256423 #22163]  INFO -- default-centos-7:     Resource Declaration:
+I, [2018-03-18T15:32:02.256472 #22163]  INFO -- default-centos-7:     ---------------------
+I, [2018-03-18T15:32:02.257063 #22163]  INFO -- default-centos-7:     # In /tmp/kitchen/cache/cookbooks/docker/recipes/default.rb
+I, [2018-03-18T15:32:02.257122 #22163]  INFO -- default-centos-7:     
+I, [2018-03-18T15:32:02.257167 #22163]  INFO -- default-centos-7:      38: execute 'create volumes' do
+I, [2018-03-18T15:32:02.257208 #22163]  INFO -- default-centos-7:      39:   command <<-EOH
+I, [2018-03-18T15:32:02.257248 #22163]  INFO -- default-centos-7:      40:     pvcreate #{node['docker']['physical_vol']} \
+I, [2018-03-18T15:32:02.257296 #22163]  INFO -- default-centos-7:      41:     vgcreate #{node['docker']['vol_group']} #{node['docker']['physical_vol']} \
+I, [2018-03-18T15:32:02.257339 #22163]  INFO -- default-centos-7:      42:     lvcreate -y -l 5%VG -n #{node['docker']['logical_vol']}\meta #{node['docker']['vol_group']} \
+I, [2018-03-18T15:32:02.257380 #22163]  INFO -- default-centos-7:      43:     lvcreate -y -l 90%VG -n #{node['docker']['logical_vol']} #{node['docker']['vol_group']} \
+I, [2018-03-18T15:32:02.257420 #22163]  INFO -- default-centos-7:      44:     lvcreate -y --zero n --thinpool #{node['docker']['vol_group']}/#{node['docker']['logical_vol']} --pooldata #{node['docker']['vol_group']}/#{node['docker']['logical_vol']}\meta
+I, [2018-03-18T15:32:02.257755 #22163]  INFO -- default-centos-7:      45:    EOH
+I, [2018-03-18T15:32:02.257906 #22163]  INFO -- default-centos-7:      46: end
+I, [2018-03-18T15:32:02.257977 #22163]  INFO -- default-centos-7:      47: 
+I, [2018-03-18T15:32:02.258031 #22163]  INFO -- default-centos-7:     
+I, [2018-03-18T15:32:02.258071 #22163]  INFO -- default-centos-7:     Compiled Resource:
+I, [2018-03-18T15:32:02.258358 #22163]  INFO -- default-centos-7:     ------------------
+I, [2018-03-18T15:32:02.258436 #22163]  INFO -- default-centos-7:     # Declared in /tmp/kitchen/cache/cookbooks/docker/recipes/default.rb:38:in `from_file'
+I, [2018-03-18T15:32:02.258500 #22163]  INFO -- default-centos-7:     
+I, [2018-03-18T15:32:02.258543 #22163]  INFO -- default-centos-7:     execute("create volumes") do
+I, [2018-03-18T15:32:02.258595 #22163]  INFO -- default-centos-7:       action [:run]
+I, [2018-03-18T15:32:02.258636 #22163]  INFO -- default-centos-7:       default_guard_interpreter :execute
+I, [2018-03-18T15:32:02.258678 #22163]  INFO -- default-centos-7:       command "    pvcreate /dev/sdb     vgcreate dvol /dev/sdb     lvcreate -y -l 5%VG -n docker-poolmeta dvol     lvcreate -y -l 90%VG -n docker-pool dvol     lvcreate -y --zero n --thinpool dvol/docker-pool --pooldata dvol/docker-poolmeta\n"
+I, [2018-03-18T15:32:02.258719 #22163]  INFO -- default-centos-7:       backup 5
+I, [2018-03-18T15:32:02.258795 #22163]  INFO -- default-centos-7:       returns 0
+I, [2018-03-18T15:32:02.258835 #22163]  INFO -- default-centos-7:       user nil
+I, [2018-03-18T15:32:02.258874 #22163]  INFO -- default-centos-7:       declared_type :execute
+I, [2018-03-18T15:32:02.259488 #22163]  INFO -- default-centos-7:       cookbook_name "docker"
+I, [2018-03-18T15:32:02.259553 #22163]  INFO -- default-centos-7:       recipe_name "default"
+I, [2018-03-18T15:32:02.259604 #22163]  INFO -- default-centos-7:       domain nil
+I, [2018-03-18T15:32:02.259646 #22163]  INFO -- default-centos-7:     end
+I, [2018-03-18T15:32:02.259685 #22163]  INFO -- default-centos-7:     
+I, [2018-03-18T15:32:02.260044 #22163]  INFO -- default-centos-7:     System Info:
+I, [2018-03-18T15:32:02.260209 #22163]  INFO -- default-centos-7:     ------------
+I, [2018-03-18T15:32:02.260261 #22163]  INFO -- default-centos-7:     chef_version=13.8.5
+I, [2018-03-18T15:32:02.260304 #22163]  INFO -- default-centos-7:     platform=centos
+I, [2018-03-18T15:32:02.260377 #22163]  INFO -- default-centos-7:     platform_version=7.3.1611
+I, [2018-03-18T15:32:02.260448 #22163]  INFO -- default-centos-7:     ruby=ruby 2.4.3p205 (2017-12-14 revision 61247) [x86_64-linux]
+I, [2018-03-18T15:32:02.260506 #22163]  INFO -- default-centos-7:     program_name=chef-client worker: ppid=251;start=21:29:17;
+I, [2018-03-18T15:32:02.260581 #22163]  INFO -- default-centos-7:     executable=/opt/chef/bin/chef-client
+I, [2018-03-18T15:32:02.260892 #22163]  INFO -- default-centos-7:     
+I, [2018-03-18T15:32:02.261159 #22163]  INFO -- default-centos-7: 
+I, [2018-03-18T15:32:02.261213 #22163]  INFO -- default-centos-7: Running handlers:
+I, [2018-03-18T15:32:02.261381 #22163]  INFO -- default-centos-7: [2018-03-18T21:31:58+00:00] ERROR: Running exception handlers
+I, [2018-03-18T15:32:02.261549 #22163]  INFO -- default-centos-7: Running handlers complete
+I, [2018-03-18T15:32:02.261602 #22163]  INFO -- default-centos-7: [2018-03-18T21:31:58+00:00] ERROR: Exception handlers complete
+I, [2018-03-18T15:32:02.261789 #22163]  INFO -- default-centos-7: Chef Client failed. 8 resources updated in 02 minutes 41 seconds
+I, [2018-03-18T15:32:02.262111 #22163]  INFO -- default-centos-7: [2018-03-18T21:31:58+00:00] FATAL: Stacktrace dumped to /tmp/kitchen/cache/chef-stacktrace.out
+I, [2018-03-18T15:32:02.262169 #22163]  INFO -- default-centos-7: [2018-03-18T21:31:58+00:00] FATAL: Please provide the contents of the stacktrace.out file if you file a bug report
+I, [2018-03-18T15:32:02.262372 #22163]  INFO -- default-centos-7: [2018-03-18T21:31:58+00:00] ERROR: execute[create volumes] (docker::default line 38) had an error: Mixlib::ShellOut::ShellCommandFailed: Expected process to exit with [0], but received '3'
+I, [2018-03-18T15:32:02.262429 #22163]  INFO -- default-centos-7: ---- Begin output of     pvcreate /dev/sdb     vgcreate dvol /dev/sdb     lvcreate -y -l 5%VG -n docker-poolmeta dvol     lvcreate -y -l 90%VG -n docker-pool dvol     lvcreate -y --zero n --thinpool dvol/docker-pool --pooldata dvol/docker-poolmeta
+I, [2018-03-18T15:32:02.262474 #22163]  INFO -- default-centos-7:  ----
+I, [2018-03-18T15:32:02.262514 #22163]  INFO -- default-centos-7: STDOUT: 
+I, [2018-03-18T15:32:02.262554 #22163]  INFO -- default-centos-7: STDERR: pvcreate: invalid option -- 'l'
+I, [2018-03-18T15:32:02.262594 #22163]  INFO -- default-centos-7:   Error during parsing of command line.
+I, [2018-03-18T15:32:02.262641 #22163]  INFO -- default-centos-7: ---- End output of     pvcreate /dev/sdb     vgcreate dvol /dev/sdb     lvcreate -y -l 5%VG -n docker-poolmeta dvol     lvcreate -y -l 90%VG -n docker-pool dvol     lvcreate -y --zero n --thinpool dvol/docker-pool --pooldata dvol/docker-poolmeta
+I, [2018-03-18T15:32:02.262683 #22163]  INFO -- default-centos-7:  ----
+I, [2018-03-18T15:32:02.262725 #22163]  INFO -- default-centos-7: Ran     pvcreate /dev/sdb     vgcreate dvol /dev/sdb     lvcreate -y -l 5%VG -n docker-poolmeta dvol     lvcreate -y -l 90%VG -n docker-pool dvol     lvcreate -y --zero n --thinpool dvol/docker-pool --pooldata dvol/docker-poolmeta
+I, [2018-03-18T15:32:02.262819 #22163]  INFO -- default-centos-7:  returned 3
+I, [2018-03-18T15:32:02.302183 #22163]  INFO -- default-centos-7: [2018-03-18T21:31:58+00:00] FATAL: Chef::Exceptions::ChildConvergeError: Chef run process exited unsuccessfully (exit code 1)
+E, [2018-03-18T15:32:02.332192 #22163] ERROR -- default-centos-7: Converge failed on instance <default-centos-7>.
+E, [2018-03-18T15:32:02.332449 #22163] ERROR -- default-centos-7: ------Exception-------
+E, [2018-03-18T15:32:02.332503 #22163] ERROR -- default-centos-7: Class: Kitchen::ActionFailed
+E, [2018-03-18T15:32:02.332542 #22163] ERROR -- default-centos-7: Message: SSH exited (1) for command: [sh -c '
+TEST_KITCHEN="1"; export TEST_KITCHEN
+sudo -E /opt/chef/bin/chef-client --local-mode --config /tmp/kitchen/client.rb --log_level auto --force-formatter --no-color --json-attributes /tmp/kitchen/dna.json --chef-zero-port 8889 
+']
+E, [2018-03-18T15:32:02.332591 #22163] ERROR -- default-centos-7: ----------------------
+E, [2018-03-18T15:32:02.332646 #22163] ERROR -- default-centos-7: ------Backtrace-------
+E, [2018-03-18T15:32:02.332703 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/provisioner/base.rb:83:in `rescue in call'
+E, [2018-03-18T15:32:02.332815 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/provisioner/base.rb:86:in `call'
+E, [2018-03-18T15:32:02.332858 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:384:in `block in converge_action'
+E, [2018-03-18T15:32:02.332891 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:527:in `synchronize_or_call'
+E, [2018-03-18T15:32:02.332924 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:489:in `block in action'
+E, [2018-03-18T15:32:02.332955 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/benchmark.rb:293:in `measure'
+E, [2018-03-18T15:32:02.332987 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:488:in `action'
+E, [2018-03-18T15:32:02.333019 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:380:in `converge_action'
+E, [2018-03-18T15:32:02.333050 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:359:in `block in transition_to'
+E, [2018-03-18T15:32:02.333083 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:358:in `each'
+E, [2018-03-18T15:32:02.333115 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:358:in `transition_to'
+E, [2018-03-18T15:32:02.333154 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:135:in `converge'
+E, [2018-03-18T15:32:02.333200 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/command.rb:197:in `public_send'
+E, [2018-03-18T15:32:02.333260 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/command.rb:197:in `run_action_in_thread'
+E, [2018-03-18T15:32:02.333319 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/command.rb:169:in `block (2 levels) in run_action'
+E, [2018-03-18T15:32:02.333383 #22163] ERROR -- default-centos-7: ----End Backtrace-----
+E, [2018-03-18T15:32:02.333426 #22163] ERROR -- default-centos-7: ---Nested Exception---
+E, [2018-03-18T15:32:02.333467 #22163] ERROR -- default-centos-7: Class: Kitchen::Transport::SshFailed
+E, [2018-03-18T15:32:02.333579 #22163] ERROR -- default-centos-7: Message: SSH exited (1) for command: [sh -c '
+TEST_KITCHEN="1"; export TEST_KITCHEN
+sudo -E /opt/chef/bin/chef-client --local-mode --config /tmp/kitchen/client.rb --log_level auto --force-formatter --no-color --json-attributes /tmp/kitchen/dna.json --chef-zero-port 8889 
+']
+E, [2018-03-18T15:32:02.333632 #22163] ERROR -- default-centos-7: ----------------------
+E, [2018-03-18T15:32:02.333664 #22163] ERROR -- default-centos-7: ------Backtrace-------
+E, [2018-03-18T15:32:02.333694 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/provisioner/base.rb:83:in `rescue in call'
+E, [2018-03-18T15:32:02.333726 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/provisioner/base.rb:86:in `call'
+E, [2018-03-18T15:32:02.333757 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:384:in `block in converge_action'
+E, [2018-03-18T15:32:02.333788 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:527:in `synchronize_or_call'
+E, [2018-03-18T15:32:02.333820 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:489:in `block in action'
+E, [2018-03-18T15:32:02.333853 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/benchmark.rb:293:in `measure'
+E, [2018-03-18T15:32:02.333907 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:488:in `action'
+E, [2018-03-18T15:32:02.333945 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:380:in `converge_action'
+E, [2018-03-18T15:32:02.333982 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:359:in `block in transition_to'
+E, [2018-03-18T15:32:02.334016 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:358:in `each'
+E, [2018-03-18T15:32:02.334059 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:358:in `transition_to'
+E, [2018-03-18T15:32:02.334120 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/instance.rb:135:in `converge'
+E, [2018-03-18T15:32:02.334180 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/command.rb:197:in `public_send'
+E, [2018-03-18T15:32:02.334240 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/command.rb:197:in `run_action_in_thread'
+E, [2018-03-18T15:32:02.334290 #22163] ERROR -- default-centos-7: /Users/erinpolsfoot/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.16.0/lib/kitchen/command.rb:169:in `block (2 levels) in run_action'
+E, [2018-03-18T15:32:02.334326 #22163] ERROR -- default-centos-7: ----End Backtrace-----

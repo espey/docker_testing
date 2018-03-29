@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Do not run if removal already is in progress
+pgrep "docker rm" && exit 0
+
+# Remove dead and exited containers
+docker rm $(docker ps -a | grep "Dead\|Exited" | awk '{print $1}'); true
+
+# Remove Containers from over 3 days old -- force removal
+docker rm -f $(docker ps -a | grep "6 days" | awk '{print $1}'); true
+docker rm -f $(docker ps -a | grep "5 days" | awk '{print $1}'); true
+docker rm -f $(docker ps -a | grep "4 days" | awk '{print $1}'); true
+docker rm -f $(docker ps -a | grep "3 days" | awk '{print $1}'); true
+
+# Remove dangling images
+docker rmi $(docker images -qf dangling=true); true
+
+# Clean up unused docker volumes
+docker volume rm $(docker volume ls -qf dangling=true); true

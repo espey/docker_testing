@@ -16,6 +16,8 @@ platforms:
         - yum install systemd -y
         - yum install wget -y
         - yum install git -y
+        - yum install lvm2 -y
+
 
 suites:
   - name: default

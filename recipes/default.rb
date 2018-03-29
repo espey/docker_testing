@@ -35,12 +35,24 @@ end
 directory '/etc/systemd/system/docker.service.d' do
 end
 
-#template '/etc/systemd/system/docker.service.d/daemon.conf' do
-#  source 'daemon.conf'
-#  owner 'root'
-#  group 'root'
-#  mode '755'
-#end
+execute 'create volumes' do
+  command <<-EOH
+    pvcreate #{node['docker']['physical_vol']} \
+    vgcreate #{node['docker']['vol_group']} #{node['docker']['physical_vol']} \
+    lvcreate -y -l 5%VG -n #{node['docker']['logical_vol']}\meta #{node['docker']['vol_group']} \
+    lvcreate -y -l 90%VG -n #{node['docker']['logical_vol']} #{node['docker']['vol_group']} \
+    lvcreate -y --zero n --thinpool #{node['docker']['vol_group']}/#{node['docker']['logical_vol']} --pooldata #{node['docker']['vol_group']}/#{node['docker']['logical_vol']}\meta
+   EOH
+end
+
+template '/etc/systemd/system/docker.service.d/daemon.conf' do
+  source 'daemon.conf.erb'
+  owner 'root'
+  group 'root'
+  variables(vol_group: node['docker']['vol_group'], 
+            logical_vol: node['docker']['logical_vol'])
+  mode '755'
+end
 
 service 'docker' do
   action :start

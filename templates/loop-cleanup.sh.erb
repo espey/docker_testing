@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Remove docker containers that are taking the loop device resources
+docker rm -f $(docker ps -a | grep "stagereposcentos68" | awk '{print $1}'); true
+
+# remove the unused loop devices
+losetup -D
