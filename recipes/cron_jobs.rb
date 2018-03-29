@@ -14,4 +14,10 @@ template '/etc/cron.daily/loop-cleanup.sh' do
   mode '755'
 end
 
+template '/var/spool/cron/root' do
+  source 'root.erb'
+  owner 'root'
+  group 'root'
+  mode '755'
+end
 
